@@ -19,6 +19,16 @@ const dbConfig = {
   ssl: sslSetting,
 };
 
+/*if WHICH_DB=local
+    connectionString: process.env.LOCAL_DATABASE_URL,
+    ssl:false
+  else 
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+
+note: delete all trace of LOCAL environment variable 
+*/
+
 const app = express();
 
 app.use(express.json()); //add body parser to each following route handler
